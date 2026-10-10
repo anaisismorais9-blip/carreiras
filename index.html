@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAI Responses API Playground</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>OpenAI Responses API Playground</h1>
+            <p>Simulador de geração de texto utilizando o modelo <code>gpt-6-astra</code></p>
+        </header>
+
+        <main class="playground-grid">
+            <!-- Formulário de Configuração -->
+            <section class="config-panel">
+                <h2>Configurações da Requisição</h2>
+                
+                <div class="form-group">
+                    <label for="model-select">Modelo (Model)</label>
+                    <select id="model-select">
+                        <option value="gpt-6-astra">gpt-6-astra (Reasoning Model)</option>
+                        <option value="gpt-5.5-2026-04-23">gpt-5.5-2026-04-23 (Snapshot)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="reasoning-effort">Esforço de Raciocínio (Reasoning Effort)</label>
+                    <select id="reasoning-effort">
+                        <option value="low">low (Baixo)</option>
+                        <option value="medium">medium (Médio)</option>
+                        <option value="high">high (Alto)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="developer-instructions">Instruções do Desenvolvedor (developer role)</label>
+                    <textarea id="developer-instructions" placeholder="Ex: Talk like a pirate."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="user-input">Entrada do Usuário (user role)</label>
+                    <textarea id="user-input" placeholder="Ex: Are semicolons optional in JavaScript?"></textarea>
+                </div>
+
+                <button id="btn-generate" class="btn-primary">Enviar Requisição (client.responses.create)</button>
+            </section>
+
+            <!-- Painel de Output e Código -->
+            <section class="output-panel">
+                <h2>Resposta do Modelo (output_text)</h2>
+                <div id="output-text-container" class="output-box placeholder">
+                    Aguardando envio da requisição...
+                </div>
+
+                <h2>Estrutura do Objeto de Resposta JSON</h2>
+                <pre><code id="json-output">{ "status": "idle" }</code></pre>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
